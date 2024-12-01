@@ -28,47 +28,67 @@ int main(){
 				}else ("ERROR. So phan tu vuot qua gia tri quy dinh! Vui long nhap lai");
 					break;
 			case 2:
-				for(int i=0;i<maxSize;i++){
-					printf(" %d ",arr[i]);
-				}
-				break;	
-			case 3:
+				if (maxSize > 0) {
+                    printf("Cac phan tu trong mang la: \n");
+                    for (int i = 0; i < maxSize; i++) {
+                        printf("%d ", arr[i]);
+                    }
+                    printf("\n");
+                } else {
+                    printf("Mang hien tai rong.\n");
+                }
+                break;	
+			case 3: 
+				if (maxSize >= 50 && maxSize < 0){
+					printf("ERROR. Khong the them gia tri vi mang da day! \n");}
+				else
+				{
 				printf("Hay nhap phan tu ban muon them: ");
 				scanf("%d",&kiTu);
 				printf("Ban muon them gia tri nay vao vi tri: ");
 				scanf("%d",&index);
-				for(int i=maxSize;i>index;i--){
-					arr[i]=arr[i-1];
-				}
+				if (index > 0 && index <= 50){
+					for(int i=maxSize;i>index;i--){
+					arr[i]=arr[i-1];}
 				arr[index]=kiTu;
 				for(int i=0;i<maxSize+1;i++){
-					printf(" %d ",arr[i]);
+					printf(" %d ",arr[i]);}
 				}
 				break;
 			case 4:
-				printf("Hay chon phan tu ban muon thay doi gia tri : ");
-				scanf("%d",&kiTu);
-				printf("Ban muon sua gia tri o vi tri nao : ");
-				scanf("%d",&index);
-				arr[index]=kiTu;
-				for(int i=0;i<maxSize+1;i++){
-				printf(" %d ",arr[i]);
-				}
-				break;
+			if (maxSize > 0) {
+                    printf("Ban muon sua gia tri o vi tri: \n");
+                    scanf("%d", &index);
+                    if (index >= 0 && index < maxSize) {
+                        printf("Nhap gia tri moi: ");
+                        scanf("%d", &kiTu);
+                        arr[index] = kiTu;
+                        printf("Sua gia tri thanh cong!\n");
+                    } else {
+                        printf("ERROR. Vi tri khong hop le!\n");}
+                } else {
+                    printf("Mang hien tai rong.\n");}
+                break;
 			case 5:
-				printf("Hay chon phan tu ban muon xoa : ");
-				scanf("%d",&index);
-				for(int i=index;i<maxSize;i++){
-				arr[i]=arr[i+1];
-				}
-				for(int i=0;i<maxSize-1;i++){
-					printf(" %d ",arr[i]);
-				}
-				break;
+				if (maxSize > 0) {
+                    printf("Hay nhap vi tri cua phan tu muon xoa: ");
+                    scanf("%d", &index);
+                    if (index >= 0 && index < maxSize) {
+                        for (int i = index; i < maxSize - 1; i++) {
+                            arr[i] = arr[i + 1];}
+                        maxSize--;
+                        printf("Xoa phan tu thanh cong!\n");
+                    } else {
+                        printf("ERROR. Vi tri khong hop le!\n");}
+                }
+			else {
+                    printf("Mang hien tai rong.\n");}
+                break;
 			case 6:
 				printf("\nKet thu chuong trinh");
 				return 0;						
 		}
 	}
+} 
 	return 0;
 }
